@@ -34,15 +34,15 @@ Follow up: If you have figured out the O(n) solution, try coding another solutio
 class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
-        int n=nums.size();
-       int maxArraySum=0;
+       int n=nums.size();
+       int maxArraySum=INT_MIN;
        int sum=0;
        for(int i=0;i<n;i++){
-        sum+=nums[i];
-        if(sum<0){
-            sum=0;
+         sum+=nums[i];
+          maxArraySum=max(maxArraySum,sum);
+       if(sum<0){
+          sum=0;
         }
-        maxArraySum=max(maxArraySum,sum);
     }
     return maxArraySum;
     }
